@@ -24,7 +24,11 @@ public class UserController {
     }
     
     @PostMapping("/user")
-    public ResponseEntity<UserModel> createUser(@RequestBody UserModel user){
+    public ResponseEntity createUser(@RequestBody UserModel user){
+        var userBD = this.userRepository.findByName(user.getName());
+        if(userBD != null){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Usúario já existente!");
+        }
         var userCreated = this.userRepository.save(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(userCreated);
     }

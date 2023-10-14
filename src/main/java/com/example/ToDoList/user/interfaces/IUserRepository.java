@@ -8,5 +8,5 @@ import com.example.ToDoList.user.models.UserModel;
 
 
 public interface IUserRepository extends JpaRepository<UserModel, UUID>{
-       
+   UserModel findByName(String name); 
 }
