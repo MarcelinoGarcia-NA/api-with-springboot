@@ -33,6 +33,8 @@ public class TaskModel {
     @CreationTimestamp
     private LocalDateTime endAt;
 
+    private UUID idUser;
+    
     @CreationTimestamp
     private LocalDateTime createdAt;
 }
